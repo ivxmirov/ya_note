@@ -137,6 +137,7 @@ class TestNoteEditDelete(TestCase):
         self.assertEqual(self.note.title, self.NEW_TITLE)
         self.assertEqual(self.note.text, self.NEW_TEXT)
         self.assertEqual(self.note.slug, self.NEW_SLUG)
+        self.assertEqual(self.note.author, self.author)
 
     def test_not_author_cant_edit_note(self):
         response = self.not_author_client.post(
@@ -146,3 +147,4 @@ class TestNoteEditDelete(TestCase):
         self.assertEqual(self.note.title, self.TITLE)
         self.assertEqual(self.note.text, self.TEXT)
         self.assertEqual(self.note.slug, self.SLUG)
+        self.assertEqual(self.note.author, self.author)
